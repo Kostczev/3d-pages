@@ -1,0 +1,448 @@
+@charset "UTF-8";
+/*отступы*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*перещет области*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/*отключение обводки*/
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+/*делаем блочными некоторые теги*/
+nav, footer, header, aside {
+  display: block;
+}
+
+/*Уравниваем поведение шрифтов и тд для разных браузеров (также запрещает самовольное увеличени шрифтов (айфон))*/
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*Говоорим тегам наследовать семейство шрифта*/
+input, button, textarea {
+  font-family: inherit;
+  display: block;
+}
+
+/*еще куча фич, таких как отклчение крестиков и отступов в разных браузерах*/
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+/*Обнуляем все заголовки*/
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 30;
+  height: 0.3rem;
+}
+.navbar .menu {
+  max-width: 72rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.navbar .menu .logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 4rem;
+}
+.navbar .menu .logo span {
+  font-weight: 300;
+}
+.navbar .menu .burger {
+  height: 4rem;
+  width: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.navbar .menu .burger:hover .bar, .navbar .menu .burger:hover .bar::before, .navbar .menu .burger:hover .bar::after {
+  background-color: #FCBAD3;
+}
+.navbar .menu .burger .bar {
+  transition: 0.3s;
+  width: 1.9rem;
+  height: 1.5px;
+  border-radius: 2px;
+  background-color: #fff;
+  transition: 0.3s;
+  position: relative;
+}
+.navbar .menu .burger .bar::after, .navbar .menu .burger .bar::before {
+  content: "";
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: #fff;
+  transition: 0.3s;
+}
+.navbar .menu .burger .bar::after {
+  transform: translateY(9px);
+}
+.navbar .menu .burger .bar::before {
+  transform: translateY(-9px);
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(87, 87, 87);
+  background-image: linear-gradient(0deg, rgb(2, 0, 36) 0%, rgb(9, 9, 121) 35%, rgb(0, 212, 255) 100%);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+.container main {
+  position: relative;
+  width: 100%;
+  left: 0;
+  z-index: 5;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+}
+.container main .page {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.container main .page.np-1 {
+  background: url(../img/gallery/image-1.jpg) top center/cover no-repeat;
+}
+.container main .page.np-2 {
+  background: url(../img/gallery/image-2.jpg) top center/cover no-repeat;
+}
+.container main .page.np-3 {
+  background: url(../img/gallery/image-3.jpg) top center/cover no-repeat;
+}
+.container main .page.np-4 {
+  background: url(../img/gallery/image-4.jpg) top center/cover no-repeat;
+}
+.container main .page.np-5 {
+  background: url(../img/gallery/image-5.jpg) top center/cover no-repeat;
+}
+.container main .page.np-6 {
+  background: url(../img/gallery/image-6.jpg) top center/cover no-repeat;
+}
+.container main .page.np-7 {
+  background: url(../img/gallery/image-7.jpg) top center/cover no-repeat;
+}
+.container main .page.np-8 {
+  background: url(../img/gallery/image-8.jpg) top center/cover no-repeat;
+}
+.container main .page.np-9 {
+  background: url(../img/gallery/image-9.jpg) top center/cover no-repeat;
+}
+.container main .page.np-10 {
+  background: url(../img/gallery/image-10.jpg) top center/cover no-repeat;
+}
+.container main .page::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+.container main .page__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container main .page__container {
+  min-width: 35rem;
+  text-align: center;
+  color: white;
+  padding: 0 10%;
+}
+.container main .page__title {
+  font-size: 2.7rem;
+  margin-bottom: 1rem;
+}
+.container main .page p {
+  margin-bottom: 3rem;
+  font-size: 1.3rem;
+}
+.container main .page__button {
+  transition: 0.3s;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid wheat;
+  border-radius: 20px;
+  color: white;
+  text-transform: uppercase;
+}
+.container main .page__button:hover {
+  color: #FCBAD3;
+  border-color: #FC5185;
+}
+.container .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: 0.5s;
+  background: #fff;
+}
+.container .shadow.one {
+  z-index: -1;
+  opacity: 0.8;
+}
+.container .shadow.two {
+  z-index: -2;
+  opacity: 0.6;
+}
+.container .links {
+  position: absolute;
+  width: 30%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(10px);
+  -webkit-animation: hide 0.5s forwards ease;
+          animation: hide 0.5s forwards ease;
+}
+.container .links a.active {
+  color: #FCBAD3;
+}
+
+.container.active .bar {
+  transform: rotate(360deg);
+  background-color: transparent;
+}
+.container.active .bar::after {
+  transform: translateY(0) rotate(-45deg);
+}
+.container.active .bar::before {
+  transform: translateY(0) rotate(45deg);
+}
+.container.active main {
+  -webkit-animation: main-animation 1s ease;
+          animation: main-animation 1s ease;
+  cursor: pointer;
+  transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+}
+.container.active main:hover {
+  transform: perspective(1500px) rotateY(15deg) translateZ(300px) scale(0.55);
+}
+.container.active main:hover + .shadow.one {
+  transform: perspective(1500px) rotateY(15deg) translateZ(225px) scale(0.525);
+}
+.container.active .shadow.one {
+  -webkit-animation: shadow-one 1s ease-out;
+          animation: shadow-one 1s ease-out;
+  transform: perspective(1500px) rotateY(15deg) translateZ(200px) scale(0.5);
+}
+.container.active .shadow.two {
+  -webkit-animation: shadow-two 1s ease-out;
+          animation: shadow-two 1s ease-out;
+  transform: perspective(1500px) rotateY(15deg) translateZ(150px) scale(0.5);
+}
+.container.active .links a {
+  -webkit-animation: appear 0.5s forwards ease var(--delayOpen);
+          animation: appear 0.5s forwards ease var(--delayOpen);
+}
+
+.container.no-active main {
+  animation: main-animation 1s ease reverse;
+  transform: translate(0);
+}
+.container.no-active .shadow.one {
+  animation: shadow-one 1s ease-out reverse;
+  transform: translate(0);
+}
+.container.no-active .shadow.two {
+  animation: shadow-two 1s ease-out reverse;
+  transform: translate(0);
+}
+
+@-webkit-keyframes main-animation {
+  from {
+    transform: translate(0);
+    pointer-events: none;
+  }
+  to {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+    pointer-events: auto;
+  }
+}
+
+@keyframes main-animation {
+  from {
+    transform: translate(0);
+    pointer-events: none;
+  }
+  to {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+    pointer-events: auto;
+  }
+}
+@-webkit-keyframes shadow-one {
+  0% {
+    transform: translate(0);
+  }
+  5% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(200px) scale(0.5);
+  }
+}
+@keyframes shadow-one {
+  0% {
+    transform: translate(0);
+  }
+  5% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(200px) scale(0.5);
+  }
+}
+@-webkit-keyframes shadow-two {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(150px) scale(0.5);
+  }
+}
+@keyframes shadow-two {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(250px) scale(0.5);
+  }
+  100% {
+    transform: perspective(1500px) rotateY(15deg) translateZ(150px) scale(0.5);
+  }
+}
+@-webkit-keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
